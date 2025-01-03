@@ -16,12 +16,12 @@ def ping():
 @client.request
 def video_data(id):
 	print("video_data for " + id)
-	return ["frame-1-data", "frame-2-data", "frame-3-data", "etc."] # frame data for each frame
+	return youtube.video_data(id)
 
 @client.request
 def audio_data(id):
 	print("audio_data for " + id)
-	return ["idk", "what", "format", "this", "will", "be"] # idk what format this will be
+	return youtube.audio_data(id)
 
 @client.request
 def video_metadata(id):
