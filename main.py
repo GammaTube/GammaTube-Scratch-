@@ -1,4 +1,5 @@
 import scratchattach as sa
+import youtube
 
 cloud = sa.get_tw_cloud("1116186279")
 client = cloud.requests(respond_order='finish')
@@ -25,11 +26,11 @@ def audio_data(id):
 @client.request
 def video_metadata(id):
 	print("metadata for " + id)
-	return ["video id for reference", "video title", "video duration", "video thumbnail data", "views", "likes", "channel name", "channel thumbnail data", "creation date"]
+	return youtube.video_metadata(id)
 
 @client.request
 def search_query(query):
 	print("searched")
-	return ["There were [2] results for query.", "video-id-1", "video-id-2"]
+	return youtube.search_query(query)
 
 client.start()
