@@ -10,7 +10,7 @@ def on_ready():
 @client.request
 def ping():
 	print("ping")
-	return pong
+	return "pong"
 
 @client.request
 def video_data(id):
