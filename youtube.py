@@ -11,7 +11,7 @@ def video_data(id):
 def audio_data(id):
   yt = YouTube(f"https://youtube.com/?v={id}")
   stream = yt.streams.filter(only_audio=True)[0]
-  return stream.download(filename=f"{random.randint(1000,9999)_temp.mp3}")
+  return stream.download(filename=f"{random.randint(1000,9999)}_temp.mp3")
 
 def video_metadata(id):
   yt = YouTube(f"https://youtube.com/?v={id}")
