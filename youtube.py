@@ -5,7 +5,7 @@ import time
 def video_data(id):
   yt = YouTube(f"https://youtube.com/?v={id}")
   stream = yt.streams.filter(file_extension='mp4')[0]
-  return stream.download(filename=f"{random.randint(1000,9999)_temp.mp4}")
+  return stream.download(filename=f"{random.randint(1000,9999)}_temp.mp4")
 
 
 def audio_data(id):
