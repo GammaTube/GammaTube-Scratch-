@@ -20,7 +20,7 @@ def video_metadata(id):
 
 def search_query(query):
   results = []
-  for result in Search(query).results:
+  for result in Search(query).videos:
     results.append(result.video_id)
   results.insert(0, f"There were {len(results)} results for {query}.")
   return results
