@@ -15,7 +15,12 @@ def audio_data(id):
 
 def video_metadata(id):
   yt = YouTube(f"https://youtube.com/?v={id}")
-  return [yt.title, time.strftime("%H:%M:%S", yt.length), yt.thumbnail_url, str(yt.views), yt.author, yt.publish_date]
+  hours = yt.length // 3600
+  minutes = (yt.length % 3600) // 60
+  seconds = yt.length % 60
+  time = "{:02d}:{:02d}:{:02d}".format(hours, minutes, seconds)
+  
+  return [yt.title, time, yt.thumbnail_url, str(yt.views), yt.author, yt.publish_date]
 
 
 def search_query(query):
