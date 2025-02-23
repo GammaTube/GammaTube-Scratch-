@@ -29,7 +29,7 @@ def video_metadata(id):
 	print("metadata for " + id)
 	m = youtube.video_metadata(id)
 	thumb = m[2]
-	data = converter.img_from_url(thumb, 16)
+	data = converter.img_from_url(thumb, 64)
 	m[2] = data
 	return m
 
@@ -43,7 +43,7 @@ def high_res_thumb(id):
 	print("high res thumb for " + id)
 	m = youtube.video_metadata(id)
 	thumb = m[2]
-	data = converter.img_from_url(thumb, 32)
+	data = converter.img_from_url(thumb, 96)
 	return str(data)
 
 client.start()
