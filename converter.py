@@ -17,8 +17,8 @@ def _process_frame(image, size):
     image_data.append(row)
   return image_data
 
-def img_from_url(url):
+def img_from_url(url, size):
   response = requests.get(url)
   img = Image.open(BytesIO(response.content))
   img = img.convert('RGB')
-  return _process_frame(img, 32)
+  return _process_frame(img, size)
