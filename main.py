@@ -1,6 +1,7 @@
 import scratchattach as sa
 import youtube
 import converter
+import os
 
 cloud = sa.get_tw_cloud("1116186279")
 client = cloud.requests(respond_order='finish')
@@ -15,14 +16,20 @@ def ping():
 	return "pong"
 
 @client.request
-def video_data(id):
+def video_data(id, chunk):
 	print("video_data for " + id)
-	return youtube.video_data(id)
+	if os.path.exists(f"{id}.mp4"):
+		file = f"{id}.mp4"
+	else:
+		file = youtube.video_data(id) # returns filename
+	data = converter.vid(file, chunk)
+	return data
 
 @client.request
-def audio_data(id):
+def audio_data(id, chunk):
 	print("audio_data for " + id)
-	return youtube.audio_data(id)
+	# data = youtube.audio_data(id)
+	return "OK"
 
 @client.request
 def video_metadata(id):
