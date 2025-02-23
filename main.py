@@ -29,7 +29,7 @@ def video_metadata(id):
 	print("metadata for " + id)
 	m = youtube.video_metadata(id)
 	thumb = m[2]
-	data = converter.img_from_url(thumb, 64)
+	data = converter.img_from_url(thumb, 48)
 	m[2] = data
 	return m
 
