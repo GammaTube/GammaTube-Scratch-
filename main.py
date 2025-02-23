@@ -1,5 +1,6 @@
 import scratchattach as sa
 import youtube
+import converter
 
 cloud = sa.get_tw_cloud("1116186279")
 client = cloud.requests(respond_order='finish')
@@ -26,7 +27,11 @@ def audio_data(id):
 @client.request
 def video_metadata(id):
 	print("metadata for " + id)
-	return youtube.video_metadata(id)
+	m = youtube.video_metadata(id)
+	thumb = m[2]
+	data = converter.img_from_url(thumb)
+	m[2] = data
+	return m
 
 @client.request
 def search_query(query):
