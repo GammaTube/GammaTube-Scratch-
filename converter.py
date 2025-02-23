@@ -13,7 +13,7 @@ def _process_frame(image, size):
     row = []
     for x in range(size):
       rgb = resized_img.getpixel((x, y))[:3]
-      row.append(rgb2scratch(rgb))
+      row.append(_rgb2scratch(rgb))
     image_data.append(row)
   return image_data
 
