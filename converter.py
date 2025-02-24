@@ -32,6 +32,7 @@ def vid(filepath, fps=1, size=32):
         pil_image = Image.fromarray(frame)
         frame_data = _process_frame(pil_image, size)
         frames_data.append(frame_data)
+    frames_data.append("END")
     
     clip.close()
     return frames_data
