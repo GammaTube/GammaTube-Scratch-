@@ -19,10 +19,15 @@ def ping():
 def video_data(id):
 	print("video_data for " + id)
 	if os.path.exists(f"{id}.mp4"):
+		print("File Found!")
 		file = f"{id}.mp4"
 	else:
+		print("Downloading...")
 		file = youtube.video_data(id) # returns filename
+		print("Downloaded!")
+	print("Converting...")
 	data = converter.vid(file)
+	print("Done! Returning...")
 	return data
 
 @client.request
