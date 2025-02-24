@@ -29,9 +29,9 @@ def vid(filepath, fps=1, size=32):
     clip = clip.resize((size, size)).set_fps(fps)
     frames_data = []
     for frame in clip.iter_frames(fps=fps, dtype="uint8"):
-	pil_image = Image.fromarray(frame)
-	frame_data = _process_frame(pil_image, size)
-	frames_data.append(frame_data)
+        pil_image = Image.fromarray(frame)
+        frame_data = _process_frame(pil_image, size)
+        frames_data.append(frame_data)
     
     clip.close()
     return frames_data
