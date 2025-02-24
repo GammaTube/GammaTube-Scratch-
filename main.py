@@ -16,13 +16,13 @@ def ping():
 	return "pong"
 
 @client.request
-def video_data(id, chunk):
+def video_data(id):
 	print("video_data for " + id)
 	if os.path.exists(f"{id}.mp4"):
 		file = f"{id}.mp4"
 	else:
 		file = youtube.video_data(id) # returns filename
-	data = converter.vid(file, chunk)
+	data = converter.vid(file)
 	return data
 
 @client.request
