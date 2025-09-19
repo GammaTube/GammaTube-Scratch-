@@ -2,8 +2,10 @@ import scratchattach as sa
 import youtube
 import converter
 import os
+import threading
+import time
 
-cloud = sa.get_tw_cloud("1160729398")
+cloud = sa.get_tw_cloud("1219090190")
 client = cloud.requests(respond_order='finish')
 
 @client.event
@@ -58,4 +60,15 @@ def high_res_thumb(id):
 	data = converter.img_from_url(thumb, 96)
 	return str(data)
 
-client.start()
+def run_client():
+    client.start()
+
+thread = threading.Thread(target=run_client, daemon=True)
+thread.start()
+
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    print("Shutting down...")
+    client.stop()
