@@ -24,7 +24,7 @@ def img_from_url(url, size):
   img = img.convert('RGB')
   return _process_frame(img, size)
 
-def vid(filepath, fps=1, size=32):
+def vid(filepath, fps=1, size=78):
     clip = VideoFileClip(filepath)
     clip = clip.resize((size, size)).set_fps(fps)
     frames_data = []
